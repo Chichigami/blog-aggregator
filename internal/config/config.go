@@ -46,13 +46,13 @@ func write(path string, cfg *Config) error {
 	return nil
 }
 
-func (cfg *Config) SetUser(name string) {
+func (cfg *Config) SetUser(name string) error {
 	cfg.CurrentUserName = name
 	path, err := GetConfigFilePath()
 	if err != nil {
 		fmt.Println(err)
 	}
-	write(path, cfg)
+	return write(path, cfg)
 }
 
 type Config struct {
