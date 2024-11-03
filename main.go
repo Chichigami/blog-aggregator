@@ -28,6 +28,7 @@ func main() {
 		cfg: &cfg,
 		db:  dbQueries,
 	}
+
 	cmds := commands{
 		handlers: make(map[string]func(*state, command) error),
 	}
@@ -35,6 +36,7 @@ func main() {
 	cmds.register("register", handlerRegister)
 	cmds.register("reset", handlerReset)
 	cmds.register("users", handlerUsers)
+	cmds.register("agg", handlerAgg)
 
 	input := os.Args
 	if len(input) < 2 {

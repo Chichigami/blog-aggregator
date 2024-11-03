@@ -90,6 +90,15 @@ func handlerUsers(s *state, cmd command) error {
 	return nil
 }
 
+func handlerAgg(s *state, cmd command) error {
+	result, err := fetchFeed(context.Background(), "https://www.wagslane.dev/index.xml")
+	if err != nil {
+		return fmt.Errorf("fetchFeed fail")
+	}
+	fmt.Println(result)
+	return nil
+}
+
 type commands struct {
 	handlers map[string]func(*state, command) error
 }
